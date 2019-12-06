@@ -1,18 +1,26 @@
-const initialiseReferences = require('./references').initialise
-const updateReferences = require('./references').update
+module.exports = processInput
 
-module.exports = (input) => {
-  const references = initialiseReferences(input)
+function processInput (input) {
+  const inputCopy = [...input]
+  inputCopy.forEach(processInstruction)
+  return inputCopy[0]
+}
 
-  const { opcode, first, second, third } = references
-
-  while (opcode.value !== 99) {
-    if (opcode.value === 1) {
-      input[third.position] = input[first.position] + input[second.position]
-    } else if (opcode.value === 2) {
-      input[third.position] = input[first.position] * input[second.position]
-    }
-    updateReferences(references, input)
+function processInstruction (opcode, index, input) {
+  if (index % 4) {
+    return
   }
-  return input[0]
+
+  const lhs = input[index + 1]
+  const rhs = input[index + 2]
+  const position = input[index + 3]
+
+  switch (opcode) {
+    case 1:
+      input[position] = input[lhs] + input[rhs]
+      break
+    case 2:
+      input[position] = input[lhs] * input[rhs]
+      break
+  }
 }
