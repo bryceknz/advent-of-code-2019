@@ -1,10 +1,10 @@
-const readInput = require('./readInput')
 const processInput = require('./processInput')
 
-module.exports = (noun, verb) => {
-  return readInput('input.txt')
-    .then((input) => overwriteInput(input, noun, verb))
-    .then(processInput)
+module.exports = run
+
+function run (input, noun, verb) {
+  const newInput = overwriteInput(input, noun, verb)
+  return processInput(newInput)
 }
 
 function overwriteInput ([first, , , ...rest], noun, verb) {
