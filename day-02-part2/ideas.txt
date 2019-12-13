@@ -1,0 +1,13 @@
+Read input
+Store as initial state called `memory`
+
+A position is called an `address`
+
+`Instructions` are comprised of four inputs: `opcode` first, then three `parameters`
+Instruction `99` has only an opcode, no parameters
+
+Address of current instruction is the `instruction pointer` (starts at 0). Value increases by the number of values in the instruction (4, or 1 for an opcode of 99)
+
+Determine the pair of inputs that produce an output of 19690720
+
+Address 1 is the 'noun', address 2 is the 'verb'. They will both lie between 0 and 99.
