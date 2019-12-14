@@ -17,8 +17,7 @@ describe('Line class tests', () => {
     const pointD = new Point(0, 10)
     const otherLine = new Line(pointC, pointD)
 
-    const intersection = new Point(5, 5)
-    const expected = intersection.toArray()
+    const expected = new Point(5, 5)
 
     const actual = line.intersect(otherLine)
     expect(actual).toEqual(expected)
