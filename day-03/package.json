@@ -8,6 +8,7 @@
     "mathjs": "^6.2.5"
   },
   "scripts": {
+    "start": "node .",
     "test": "jest --verbose --watchAll"
   },
   "author": "bryceknz",
