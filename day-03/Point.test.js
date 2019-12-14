@@ -29,4 +29,10 @@ describe('Point class tests', () => {
     const otherPoint = new Point(5, 8)
     expect(point.distance(otherPoint)).toBe(8)
   })
+
+  it('clone returns a new cloned Point', () => {
+    const newPoint = point.clone()
+    expect(newPoint).toEqual(point)
+    expect(point === newPoint).toBeFalsy()
+  })
 })

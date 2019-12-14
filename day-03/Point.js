@@ -12,4 +12,12 @@ module.exports = class Point {
   toArray () {
     return [ this.x, this.y ]
   }
+
+  clone () {
+    return Object.assign(
+      Object.create(
+        Object.getPrototypeOf(this)
+      ),
+      this)
+  }
 }
