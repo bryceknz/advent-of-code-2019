@@ -20,4 +20,21 @@ module.exports = class Point {
       ),
       this)
   }
+
+  shift (direction, magnitude) {
+    switch (direction) {
+      case 'R':
+        this.x += magnitude
+        break
+      case 'L':
+        this.x -= magnitude
+        break
+      case 'U':
+        this.y += magnitude
+        break
+      case 'D':
+        this.y -= magnitude
+        break
+    }
+  }
 }
