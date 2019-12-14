@@ -25,23 +25,26 @@ module.exports = class Line {
     let { x: aX, y: aY } = this.a
     let { x: bX, y: bY } = this.b
 
-    const points = [ this.a.clone() ]
+    const points = [ ]
 
     // Vertical line
     if (aX === bX) {
-      if (aY < bY) {
-        while (aY < bY) {
-          aY++
-          points.push(new Point(aX, aY))
-        }
+      // Decreasing line
+      if (aY > bY) [aY, bY] = [bY, aY]
+
+      points.push(new Point(aX, aY))
+      while (aY < bY) {
+        aY++
+        points.push(new Point(aX, aY))
       }
       // Horizontal line
     } else if (aY === bY) {
-      if (aX < bX) {
-        while (aX < bX) {
-          aX++
-          points.push(new Point(aX, aY))
-        }
+      if (aX > bX) [aX, bX] = [bX, aX]
+
+      points.push(new Point(aX, aY))
+      while (aX < bX) {
+        aX++
+        points.push(new Point(aX, aY))
       }
     }
 
