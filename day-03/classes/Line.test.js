@@ -23,13 +23,13 @@ describe('Line class tests', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('getPoints returns list of points in a horizontal line', () => {
+  it('getPoints returns list of points on an increasing horizontal line', () => {
     const expected = [ new Point(0, 0), new Point(1, 0), new Point(2, 0), new Point(3, 0), new Point(4, 0) ]
     const actual = line.getPoints()
     expect(actual).toEqual(expected)
   })
 
-  it('getPoints returns list of points in a vertical line', () => {
+  it('getPoints returns list of points on an increasing vertical line', () => {
     const pointC = new Point(0, 0)
     const pointD = new Point(0, 10)
     const otherLine = new Line(pointC, pointD)
